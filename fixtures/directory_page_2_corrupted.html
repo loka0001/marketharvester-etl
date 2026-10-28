@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Austin Business Directory - Corrupted / Edge Case Page</title>
+</head>
+<body>
+    <main>
+        <!-- Valid Item: Iron Peak Fitness -->
+        <div class="business-card">
+            <h2 class="company-name">Iron Peak Fitness</h2>
+            <span class="category">Gym &amp; Athletics</span>
+            <div class="rating" data-rating="4.9">4.9 Stars</div>
+            <span class="review-count">(310 reviews)</span>
+            <div class="contact-details">
+                <span class="phone">512-555-4422</span>
+                <a class="email" href="mailto:info@ironpeakfit.com">info@ironpeakfit.com</a>
+                <a class="website" href="https://ironpeakfit.com">Website</a>
+            </div>
+            <div class="address-block">
+                <span class="street">1400 S Lamar Blvd</span>
+                <span class="city">Austin</span>
+                <span class="state">TX</span>
+                <span class="postal-code">78704</span>
+                <span class="country">US</span>
+            </div>
+        </div>
+
+        <!-- Corrupt Item 1: Malformed Email Address (should be quarantined) -->
+        <div class="business-card">
+            <h2 class="company-name">Broken Byte Tech Support</h2>
+            <span class="category">IT Services</span>
+            <div class="rating" data-rating="3.2">3.2 Stars</div>
+            <span class="review-count">(12 reviews)</span>
+            <div class="contact-details">
+                <span class="phone">512-555-1122</span>
+                <a class="email" href="mailto:not-an-email-address@@bad">not-an-email-address@@bad</a>
+            </div>
+            <div class="address-block">
+                <span class="street">99 Fake St</span>
+                <span class="city">Austin</span>
+                <span class="state">TX</span>
+                <span class="postal-code">78701</span>
+                <span class="country">US</span>
+            </div>
+        </div>
+
+        <!-- Corrupt Item 2: Invalid Phone (too short) and Empty City (should be quarantined) -->
+        <div class="business-card">
+            <h2 class="company-name">X</h2>
+            <span class="category">Mystery</span>
+            <div class="rating" data-rating="1.0">1.0 Stars</div>
+            <span class="review-count">(1 reviews)</span>
+            <div class="contact-details">
+                <span class="phone">123</span>
+            </div>
+            <div class="address-block">
+                <span class="street">No Where</span>
+                <span class="city"></span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
